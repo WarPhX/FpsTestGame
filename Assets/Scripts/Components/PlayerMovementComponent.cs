@@ -95,9 +95,15 @@ public class PlayerMovementComponent : MonoBehaviour {
         {
             jumpVec.y = JumpForce;
         }
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             GetComponent<MouseLook>().enabled = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            GetComponent<MouseLook>().enabled = true;
         }
 
         if (GetComponent<Rigidbody>())

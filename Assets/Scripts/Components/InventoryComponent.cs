@@ -13,10 +13,10 @@ public class InventoryComponent : MonoBehaviour {
 
     private void Start()
     {
-        currentWeaponLeft = Instantiate(weaponList[0], DummyLeft.transform,false);
+        currentWeaponLeft = Instantiate(weaponList[0], DummyLeft.transform.position, DummyLeft.transform.rotation,transform);
         //currentWeaponLeft.transform.parent = this.gameObject.transform;
         
-        currentWeaponRight = Instantiate(weaponList[1], DummyRight.transform, false);
+        currentWeaponRight = Instantiate(weaponList[1], DummyRight.transform.position, DummyRight.transform.rotation, transform);
         //currentWeaponRight.transform.parent = this.gameObject.transform;
     }
 }
