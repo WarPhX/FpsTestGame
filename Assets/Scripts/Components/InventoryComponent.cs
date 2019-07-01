@@ -2,21 +2,62 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum WeaponType
+{
+    Pistol = 0,
+    Rifle = 1,
+    MachineGun = 2,
+    ChainGun = 3,
+    Sniper = 4,
+    PumpActionRifle = 5
+}
+
 public class InventoryComponent : MonoBehaviour {
 
     public List<GameObject> weaponList;
     public GameObject DummyLeft;
     public GameObject DummyRight;
 
-    private GameObject currentWeaponLeft;
-    private GameObject currentWeaponRight;
+    private GameObject curWeaponLeft;   // not used curently
+    private GameObject curWeaponRight;
+    private WeaponControllerComponent curWeaponControllerRight;
+
+    private WeaponType currentWeaponIdx;
+
 
     private void Start()
     {
-        currentWeaponLeft = Instantiate(weaponList[0], DummyLeft.transform.position, DummyLeft.transform.rotation,transform);
-        //currentWeaponLeft.transform.parent = this.gameObject.transform;
-        
-        currentWeaponRight = Instantiate(weaponList[1], DummyRight.transform.position, DummyRight.transform.rotation, transform);
-        //currentWeaponRight.transform.parent = this.gameObject.transform;
+        curWeaponRight = Instantiate(weaponList[0], DummyRight.transform.position, DummyRight.transform.rotation, transform);
+        currentWeaponIdx = 0;
+        curWeaponControllerRight = curWeaponRight.GetComponent<WeaponControllerComponent>();
+        if (curWeaponControllerRight)
+        {
+            curWeaponControllerRight.SetOwner(gameObject);
+        }
+
+        EventManager.Instance.AddListener<ChangeWeaponEvent>(OnChangeWeapon);
+        EventManager.Instance.AddListener<ShootEvent>(OnShoot);
     }
+
+    private void OnChangeWeapon(ChangeWeaponEvent e)
+    {
+        if (currentWeaponIdx != e.weaponId)
+        {
+            Destroy(curWeaponRight.gameObject);
+            curWeaponRight = Instantiate(weaponList[(int)e.weaponId], DummyRight.transform.position, DummyRight.transform.rotation, transform);
+            curWeaponControllerRight = curWeaponRight.GetComponent<WeaponControllerComponent>();
+            if (curWeaponControllerRight)
+            {
+                curWeaponControllerRight.SetOwner(gameObject);
+            }
+            currentWeaponIdx = e.weaponId;
+        }
+    }
+
+
+    public void OnShoot(ShootEvent e)
+    {
+        curWeaponControllerRight.OnShoot();
+    }
+
 }
