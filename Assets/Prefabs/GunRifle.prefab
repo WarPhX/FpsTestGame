@@ -36,6 +36,7 @@ GameObject:
   - component: {fileID: 4326513982472290}
   - component: {fileID: 33137803862847854}
   - component: {fileID: 23210565083101556}
+  - component: {fileID: 114238814768679934}
   m_Layer: 0
   m_Name: GunRifle
   m_TagString: Gun
@@ -49,13 +50,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1352146958264086}
-  m_LocalRotation: {x: -0, y: -0.00000020861623, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4326513982472290}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &4326513982472290
 Transform:
   m_ObjectHideFlags: 1
@@ -64,7 +65,7 @@ Transform:
   m_GameObject: {fileID: 1929724734576988}
   m_LocalRotation: {x: -0, y: 0.29419056, z: -0, w: 0.9557469}
   m_LocalPosition: {x: 7.343216, y: 0.030114016, z: -8.887064}
-  m_LocalScale: {x: 0.48501378, y: 0.06022803, z: 0.038940016}
+  m_LocalScale: {x: 0.83513373, y: 0.063847736, z: 0.048414122}
   m_Children:
   - {fileID: 4140604916888092}
   m_Father: {fileID: 0}
@@ -112,3 +113,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1929724734576988}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114238814768679934
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1929724734576988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa27c45f537028a46a530d7580939d9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpeed: 1
+  objBullet: {fileID: 1678060210958866, guid: 90433c202763d3a49ac42da40ec02e99, type: 2}
+  bulletDummy: {fileID: 1352146958264086}

@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 33918059599320914}
   - component: {fileID: 23205417641476880}
   - component: {fileID: 114437854249366538}
+  - component: {fileID: 114777094792791956}
   m_Layer: 0
   m_Name: GunPistol
   m_TagString: Gun
@@ -124,6 +125,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa27c45f537028a46a530d7580939d9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 10
+  bulletSpeed: 1
   objBullet: {fileID: 1678060210958866, guid: 90433c202763d3a49ac42da40ec02e99, type: 2}
   bulletDummy: {fileID: 1548155471446504}
+--- !u!114 &114777094792791956
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1834780904239426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8844abfdb78adaa4896721ab27a4516c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

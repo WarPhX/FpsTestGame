@@ -6,7 +6,6 @@ public class StatsComponent : MonoBehaviour {
 
     public float maxHp;
     private float curHp;
-    public float damage;
 
 	void Start ()
     {
@@ -18,7 +17,7 @@ public class StatsComponent : MonoBehaviour {
     {
         if (this.gameObject == e.targetHit)
         {
-            curHp -= e.shooter.GetComponent<StatsComponent>().damage;
+            curHp -= e.damage;
             Debug.Log("I've been shot " + this.gameObject.name + " , curent hp is " + curHp);
         }
     }

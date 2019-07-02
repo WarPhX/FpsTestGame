@@ -17,4 +17,5 @@ public class BulletHitEnemyEvent : Message, IGameEvent
     public override string Type { get { return "BulletHitEnemyEvent"; } }
     public GameObject targetHit;
     public GameObject shooter;
+    public float damage;
 }

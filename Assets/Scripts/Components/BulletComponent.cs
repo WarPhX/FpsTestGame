@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletComponent : MonoBehaviour {
 
     private GameObject shooter;
+    private float damage;
 
     public void SetOwner(GameObject owner)
     {
@@ -15,10 +16,7 @@ public class BulletComponent : MonoBehaviour {
     {
         if (collision.gameObject.transform.parent.gameObject.tag == "Enemy")
         {
-            BulletHitEnemyEvent e = new BulletHitEnemyEvent();
-            e.targetHit = collision.gameObject.transform.parent.gameObject;
-            e.shooter = shooter;
-            EventManager.Instance.SendEvent(e);
+
         }
 
         Destroy(this.gameObject);
